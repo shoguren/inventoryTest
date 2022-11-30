@@ -98,3 +98,13 @@ insert into sample_person(id,first_name,last_name,email,phone,date_of_birth,occu
 insert into sample_person(id,first_name,last_name,email,phone,date_of_birth,occupation,important) values ('879f6b6a-29ae-47c9-a600-eed51177df9d','Earl','Giovannoni','earl.giovannoni@lojet.ge','(433) 862-3076','1986-10-30','Auto Service Station Attendant',false)
 insert into sample_person(id,first_name,last_name,email,phone,date_of_birth,occupation,important) values ('f2cb8976-ff50-4779-84b2-cf6f5e91b53d','Helen','Zanieri','helen.zanieri@ukve.tn','(619) 506-4452','1968-03-13','Healthcare Social Worker',false)
 insert into sample_person(id,first_name,last_name,email,phone,date_of_birth,occupation,important) values ('78484397-fe8d-4540-8712-a58dff9a2451','Agnes','Toccafondi','agnes.toccafondi@viipo.ae','(616) 688-6883','1970-04-02','Comedian',false)
+
+insert into store(id, name, address) values ('78484397-fe8d-4540-8712-a58dff9a2451', 'Sucursal Palmas', 'Palmas 258')
+
+insert into product(id, name, amount, price, minimum_stock, replenish_amount) values ('78484397-fe8d-4540-8712-a58dff9a2451', 'Gansito Marinela', 10.0, 20, 80)
+insert into product(id, name, amount, price, minimum_stock, replenish_amount) values ('78484397-fe8d-4540-8712-a58dff9a2452', 'Pinguino Marinela', 12.0, 10, 50)
+insert into product(id, name, amount, price, minimum_stock, replenish_amount) values ('78484397-fe8d-4540-8712-a58dff9a2453', 'Chocorol Marinela', 15.00, 10, 50)
+
+insert into stock_item(id, store_id, product_id, amount) values ('78484397-fe8d-4540-8712-a58dff9a2451', '78484397-fe8d-4540-8712-a58dff9a2451', '78484397-fe8d-4540-8712-a58dff9a2451', 100)
+insert into stock_item(id, store_id, product_id, amount) values ('78484397-fe8d-4540-8712-a58dff9a2452', '78484397-fe8d-4540-8712-a58dff9a2451', '78484397-fe8d-4540-8712-a58dff9a2452', 50)
+insert into stock_item(id, store_id, product_id, amount) values ('78484397-fe8d-4540-8712-a58dff9a2453', '78484397-fe8d-4540-8712-a58dff9a2451', '78484397-fe8d-4540-8712-a58dff9a2453', 20)

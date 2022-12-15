@@ -61,9 +61,14 @@ public class StockView extends Div implements BeforeEnterObserver {
         add(splitLayout);
 
         // Configure Grid
-        grid.addColumn("name").setAutoWidth(true);
-        grid.addColumn("amount").setAutoWidth(true);
-
+        grid.addColumn(stockItem -> stockItem.getStore().getName())
+                .setHeader("Store")
+                .setAutoWidth(true);
+        grid.addColumn(stockItem -> stockItem.getProduct().getName())
+                .setHeader("Product")
+                .setAutoWidth(true);
+        grid.addColumn("amount")
+                .setAutoWidth(true);
 
         grid.setItems(query -> stockItemService.list(
                 PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))

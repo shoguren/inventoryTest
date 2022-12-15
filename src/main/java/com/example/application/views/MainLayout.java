@@ -13,6 +13,8 @@ import com.example.application.views.helloworld.HelloWorldView;
 import com.example.application.views.imagelist.ImageListView;
 import com.example.application.views.masterdetail.MasterDetailView;
 import com.example.application.views.personform.PersonFormView;
+import com.example.application.views.stock.InboundStockView;
+import com.example.application.views.stock.StockView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -61,7 +63,11 @@ public class MainLayout extends AppLayout {
         // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
-        nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, "la la-globe"));
+        nav.addItem(new AppNavItem("Global Stock", StockView.class, "la la-globe"));
+        nav.addItem(new AppNavItem("Arrivals", InboundStockView.class, "las la-sign-in-alt"));
+        nav.addItem(new AppNavItem("Sales", StockView.class, "las la-sign-out-alt"));
+
+//        nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, "la la-globe"));
         nav.addItem(new AppNavItem("About", AboutView.class, "la la-file"));
         nav.addItem(new AppNavItem("Checkout Form", CheckoutFormView.class, "la la-credit-card"));
         nav.addItem(new AppNavItem("Card List", CardListView.class, "la la-list"));

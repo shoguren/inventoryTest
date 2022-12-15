@@ -20,6 +20,18 @@ public class StockItemService {
         this.repository = repository;
     }
 
+    public StockItem addToStock(StockItem entity) {
+        StockItem entityToSave = repository.findItemByStoreAndProduct(entity.getStore().getId(), entity.getProduct().getId());
+
+        if (entityToSave == null) {
+            entity.setId(UUID.randomUUID());
+            entityToSave = entity;
+        } else {
+            entityToSave.setAmount(entityToSave.getAmount() + entity.getAmount());
+        }
+        return repository.save(entityToSave);
+    }
+
     public Optional<StockItem> get(UUID id) {
         return repository.findById(id);
     }

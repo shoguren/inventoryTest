@@ -2,35 +2,51 @@ package com.example.application.data.entity;
 
 import javax.annotation.Nonnull;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class StockItem extends AbstractEntity {
 
-    @Nonnull
-    private String name;
+//    private String productId;
+//    private String storeId;
+
+    public StockItem() {
+    }
+
+    public StockItem(Store store, Product product, int amount) {
+        this.amount = amount;
+        this.product = product;
+        this.store = store;
+    }
 
     @Nonnull
     private int amount;
 
-    @Nonnull
-    private double price;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="product_id")
+    private Product product;
 
-    @Nonnull
-    private int minimumStock;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="store_id")
+    private Store store;
 
-    @Nonnull
-    private int replenishAmount;
+//    public String getProductId() {
+//        return productId;
+//    }
+//
+//    public void setProductId(String productId) {
+//        this.productId = productId;
+//    }
 
-    private String storeId;
-
-    @Nonnull
-    public String getName() {
-        return name;
-    }
-
-    public void setName(@Nonnull String name) {
-        this.name = name;
-    }
+//    public String getStoreId() {
+//        return storeId;
+//    }
+//
+//    public void setStoreId(String storeId) {
+//        this.storeId = storeId;
+//    }
 
     public int getAmount() {
         return amount;
@@ -40,35 +56,19 @@ public class StockItem extends AbstractEntity {
         this.amount = amount;
     }
 
-    public double getPrice() {
-        return price;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public int getMinimumStock() {
-        return minimumStock;
+    public Store getStore() {
+        return store;
     }
 
-    public void setMinimumStock(int minimumStock) {
-        this.minimumStock = minimumStock;
-    }
-
-    public int getReplenishAmount() {
-        return replenishAmount;
-    }
-
-    public void setReplenishAmount(int replenishAmount) {
-        this.replenishAmount = replenishAmount;
-    }
-
-    public String getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(String storeId) {
-        this.storeId = storeId;
+    public void setStore(Store store) {
+        this.store = store;
     }
 }
